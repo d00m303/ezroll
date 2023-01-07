@@ -2,17 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class Customer extends ChangeNotifier {
+  var kolorrolki = [
+    Colors.red,
+    Colors.blue,
+    Colors.cyan,
+    Colors.green,
+    Colors.yellow,
+  ];
+
   List listaRolek = [];
 
   TextEditingController namecontroller = TextEditingController();
   TextEditingController typecontroller = TextEditingController();
   TextEditingController weightcontroller = TextEditingController();
+  TextEditingController colorcontroller = TextEditingController();
 
   int currentIndex = 0;
 
   void addRoll() {
-    listaRolek
-        .add([namecontroller.text, typecontroller.text, weightcontroller.text]);
+    listaRolek.add([
+      namecontroller.text,
+      typecontroller.text,
+      weightcontroller.text,
+      colorcontroller.text
+    ]);
 
     namecontroller.clear();
     typecontroller.clear();
@@ -23,8 +36,12 @@ class Customer extends ChangeNotifier {
 
   void updateRoll(int index) {
     listaRolek.removeAt(index);
-    listaRolek
-        .add([namecontroller.text, typecontroller.text, weightcontroller.text]);
+    listaRolek.add([
+      namecontroller.text,
+      typecontroller.text,
+      weightcontroller.text,
+      colorcontroller.text
+    ]);
 
     namecontroller.clear();
     typecontroller.clear();
@@ -39,8 +56,8 @@ class Customer extends ChangeNotifier {
   // run this method if this is the 1st time ever opening this app
   void createInitialData() {
     listaRolek = [
-      ["dummyName", "dummyType", "100"],
-      ["dummyName2", "dummyType2", "200"],
+      ["dummyName", "dummyType", "100", "0"],
+      ["dummyName2", "dummyType2", "200", "3"],
     ];
     notifyListeners();
   }

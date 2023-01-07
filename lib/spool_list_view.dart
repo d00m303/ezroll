@@ -17,6 +17,7 @@ class SpoolListView extends StatefulWidget {
 class _SpoolListViewState extends State<SpoolListView> {
   @override
   Widget build(BuildContext context) {
+    Color _color = Colors.blue;
     final customer = Provider.of<Customer>(context, listen: true);
     String text = "";
     int x = 0;
@@ -82,29 +83,21 @@ class _SpoolListViewState extends State<SpoolListView> {
                         const SizedBox(
                           width: 20,
                         ),
-                        Row(
-                          children: [
-                            Container(
-                              width: 30,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: const Color.fromARGB(255, 34, 2, 75),
-                                    width: 1.0),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(12)),
-                                  width: 20,
-                                  height: 20,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                        Container(
+                            width: 20,
+                            height: 50,
+                            color: (customer.listaRolek[index][3] == "0")
+                                ? Colors.red
+                                : (customer.listaRolek[index][3] == "1")
+                                    ? Colors.blue
+                                    : (customer.listaRolek[index][3] == "2")
+                                        ? Colors.cyan
+                                        : (customer.listaRolek[index][3] == "3")
+                                            ? Colors.green
+                                            : (customer.listaRolek[index][3] ==
+                                                    "4")
+                                                ? Colors.yellow
+                                                : Colors.black),
                         Expanded(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,

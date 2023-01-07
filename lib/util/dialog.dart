@@ -9,6 +9,7 @@ class DialogBox extends StatefulWidget {
   final namecontroller;
   final typecontroller;
   final weightcontroller;
+  final colorcontroller;
 
   VoidCallback onSave;
   VoidCallback onCancel;
@@ -18,6 +19,7 @@ class DialogBox extends StatefulWidget {
       this.namecontroller,
       this.typecontroller,
       required this.weightcontroller,
+      required this.colorcontroller,
       required this.onSave,
       required this.onCancel});
 
@@ -55,6 +57,12 @@ class _DialogBoxState extends State<DialogBox> {
               TextField(
                   keyboardType: TextInputType.number,
                   controller: customer.weightcontroller,
+                  decoration:
+                      const InputDecoration(border: OutlineInputBorder())),
+              const Text('Color:'),
+              TextField(
+                  keyboardType: TextInputType.number,
+                  controller: customer.colorcontroller,
                   decoration:
                       const InputDecoration(border: OutlineInputBorder())),
               Row(

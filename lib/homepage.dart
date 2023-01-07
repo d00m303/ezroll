@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'util/provider.dart';
 
 // TODO:
-// - dodac 3 kropki ikonke i dropdown do - edit    V
+
 // - color picker
 
 // sortowanie
@@ -21,6 +21,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _myBox = Hive.box('mybox');
+  Color _color = Colors.blue;
 
   @override
   void initState() {
@@ -49,6 +50,7 @@ class _HomePageState extends State<HomePage> {
             namecontroller: customer.namecontroller,
             typecontroller: customer.typecontroller,
             weightcontroller: customer.weightcontroller,
+            colorcontroller: customer.colorcontroller,
             onSave: customer.addRoll,
             onCancel: () => Navigator.of(context).pop(),
           );
@@ -73,6 +75,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           const DashText(),
           const SpoolListView(),
+
           Row(
             children: [
               Container(
@@ -88,15 +91,16 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
+
+          // floatingActionButton: FloatingActionButton(
+          //   onPressed: () {},
+          //   child: IconButton(
+          //     onPressed: createNewSpool,
+          //     icon: const Icon(Icons.add),
+          //   ),
+          // ),
         ],
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {},
-      //   child: IconButton(
-      //     onPressed: createNewSpool,
-      //     icon: const Icon(Icons.add),
-      //   ),
-      // ),
     );
   }
 }
