@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prov/util/color_dropdown.dart';
 
 import 'package:prov/util/editdialog.dart';
 import 'package:prov/util/provider.dart';
@@ -83,21 +84,39 @@ class _SpoolListViewState extends State<SpoolListView> {
                         const SizedBox(
                           width: 20,
                         ),
-                        Container(
-                            width: 20,
-                            height: 50,
-                            color: (customer.listaRolek[index][3] == "0")
-                                ? Colors.red
-                                : (customer.listaRolek[index][3] == "1")
-                                    ? Colors.blue
-                                    : (customer.listaRolek[index][3] == "2")
-                                        ? Colors.cyan
-                                        : (customer.listaRolek[index][3] == "3")
-                                            ? Colors.green
-                                            : (customer.listaRolek[index][3] ==
-                                                    "4")
-                                                ? Colors.yellow
-                                                : Colors.black),
+                        GestureDetector(
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) =>
+                                    Center(child: const ColorDropdown()));
+                          },
+                          child: Container(
+                              width: 20,
+                              height: 50,
+                              color: (customer.listaRolek[index][3] == "0")
+                                  ? Colors.red
+                                  : (customer.listaRolek[index][3] == "1")
+                                      ? Colors.blue
+                                      : (customer.listaRolek[index][3] == "2")
+                                          ? Colors.cyan
+                                          : (customer.listaRolek[index][3] ==
+                                                  "3")
+                                              ? Colors.green
+                                              : (customer.listaRolek[index]
+                                                          [3] ==
+                                                      "4")
+                                                  ? Colors.yellow
+                                                  : (customer.listaRolek[index]
+                                                              [3] ==
+                                                          "5")
+                                                      ? Colors.black
+                                                      : (customer.listaRolek[
+                                                                  index][3] ==
+                                                              "6")
+                                                          ? Colors.white
+                                                          : Colors.white),
+                        ),
                         Expanded(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,

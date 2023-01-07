@@ -8,6 +8,8 @@ class Customer extends ChangeNotifier {
     Colors.cyan,
     Colors.green,
     Colors.yellow,
+    Colors.black,
+    Colors.white,
   ];
 
   List listaRolek = [];
