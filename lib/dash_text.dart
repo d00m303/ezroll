@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DashText extends StatelessWidget {
-  const DashText({super.key});
+  final String dashText;
+  final String sortText;
+  const DashText({super.key, required this.dashText, required this.sortText});
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +13,9 @@ class DashText extends StatelessWidget {
           padding: const EdgeInsets.only(left: 12, top: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
+            children: [
               Text(
-                "Available Spools:",
+                dashText,
                 style: TextStyle(
                   fontSize: 24,
                   color: Colors.blueGrey,
@@ -36,11 +38,11 @@ class DashText extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: const [
+          children: [
             Padding(
               padding: EdgeInsets.only(right: 15.0),
               child: Text(
-                "SORT",
+                sortText,
                 style: TextStyle(fontSize: 12, color: Colors.blueGrey),
               ),
             ),

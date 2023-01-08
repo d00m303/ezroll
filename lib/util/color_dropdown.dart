@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prov/spool_list_view.dart';
 import 'package:prov/util/provider.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +12,6 @@ class ColorDropdown extends StatefulWidget {
 class _ColorDropdownState extends State<ColorDropdown> {
   @override
   Widget build(BuildContext context) {
-    SpoolListView sl = SpoolListView();
     final customer = Provider.of<Customer>(context, listen: true);
     int currindex = 0;
     return Container(

@@ -11,6 +11,7 @@ import 'util/provider.dart';
 // dodac kolory
 // dodac current color index bo przy edicie nie lapie, i daje default na czarny na razie
 // sortowanie
+// waga nowej rolki brutto
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -73,7 +74,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          const DashText(),
+          const DashText(dashText: "Available Spools:", sortText: "Sort"),
           const SpoolListView(),
 
           Row(
