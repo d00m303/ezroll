@@ -39,12 +39,13 @@ class Customer extends ChangeNotifier {
   }
 
   void updateRoll(int index) {
+    var x = listaRolek[index][3];
     listaRolek.removeAt(index);
     listaRolek.add([
       namecontroller.text,
       typecontroller.text,
       weightcontroller.text,
-      "5",
+      x.toString(),
     ]);
 
     namecontroller.clear();
