@@ -8,8 +8,8 @@ import 'util/provider.dart';
 
 // TODO:
 
-// - color picker
-
+// dodac kolory
+// dodac current color index bo przy edicie nie lapie, i daje default na czarny na razie
 // sortowanie
 
 class HomePage extends StatefulWidget {

@@ -59,12 +59,6 @@ class _DialogBoxState extends State<DialogBox> {
                   controller: customer.weightcontroller,
                   decoration:
                       const InputDecoration(border: OutlineInputBorder())),
-              const Text('Color:'),
-              TextField(
-                  keyboardType: TextInputType.number,
-                  controller: customer.colorcontroller,
-                  decoration:
-                      const InputDecoration(border: OutlineInputBorder())),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

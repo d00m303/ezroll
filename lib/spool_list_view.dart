@@ -218,8 +218,12 @@ class _SpoolListViewState extends State<SpoolListView> {
                                         weightcontroller:
                                             customer.weightcontroller,
                                         onSave: () {},
-                                        onCancel: () =>
-                                            Navigator.of(context).pop());
+                                        onCancel: () {
+                                          Navigator.of(context).pop();
+                                          customer.namecontroller.clear();
+                                          customer.typecontroller.clear();
+                                          customer.weightcontroller.clear();
+                                        });
                                   });
                             }
 

@@ -17,7 +17,7 @@ class Customer extends ChangeNotifier {
   TextEditingController namecontroller = TextEditingController();
   TextEditingController typecontroller = TextEditingController();
   TextEditingController weightcontroller = TextEditingController();
-  TextEditingController colorcontroller = TextEditingController();
+  TextEditingController colorcontroller = TextEditingController(text: "5");
 
   int currentIndex = 0;
   int colorIndex = 0;
@@ -33,6 +33,7 @@ class Customer extends ChangeNotifier {
     namecontroller.clear();
     typecontroller.clear();
     weightcontroller.clear();
+
     updateDataBase();
     notifyListeners();
   }
@@ -43,7 +44,7 @@ class Customer extends ChangeNotifier {
       namecontroller.text,
       typecontroller.text,
       weightcontroller.text,
-      colorcontroller.text
+      "5",
     ]);
 
     namecontroller.clear();
