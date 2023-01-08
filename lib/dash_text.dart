@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:prov/util/provider.dart';
+import 'package:provider/provider.dart';
 
-class DashText extends StatelessWidget {
+class DashText extends StatefulWidget {
   final String dashText;
   final String sortText;
   const DashText({super.key, required this.dashText, required this.sortText});
 
   @override
+  State<DashText> createState() => _DashTextState();
+}
+
+class _DashTextState extends State<DashText> {
+  @override
   Widget build(BuildContext context) {
+    final customer = Provider.of<Customer>(context, listen: true);
+
     return Column(
       children: [
         Padding(
@@ -15,7 +24,7 @@ class DashText extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                dashText,
+                widget.dashText,
                 style: TextStyle(
                   fontSize: 24,
                   color: Colors.blueGrey,
@@ -41,9 +50,16 @@ class DashText extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(right: 15.0),
-              child: Text(
-                sortText,
-                style: TextStyle(fontSize: 12, color: Colors.blueGrey),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    customer.sortByName();
+                  });
+                },
+                child: Text(
+                  widget.sortText,
+                  style: TextStyle(fontSize: 12, color: Colors.blueGrey),
+                ),
               ),
             ),
           ],

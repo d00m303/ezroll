@@ -54,10 +54,8 @@ class Customer extends ChangeNotifier {
     notifyListeners();
   }
 
-  // reference our box
   final _myBox = Hive.box('mybox');
 
-  // run this method if this is the 1st time ever opening this app
   void createInitialData() {
     listaRolek = [
       ["dummyName", "dummyType", "100", "0"],
@@ -66,15 +64,19 @@ class Customer extends ChangeNotifier {
     notifyListeners();
   }
 
-  // load the data from database
   void loadData() {
     listaRolek = _myBox.get("TODOLIST");
     notifyListeners();
   }
 
-  // update the database
   void updateDataBase() {
     _myBox.put("TODOLIST", listaRolek);
+    notifyListeners();
+  }
+
+  void sortByName() {
+    listaRolek.sort((a, b) => a[0].compareTo(b[0]));
+    print(listaRolek);
     notifyListeners();
   }
 }

@@ -22,7 +22,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _myBox = Hive.box('mybox');
-  Color _color = Colors.blue;
 
   @override
   void initState() {
@@ -76,7 +75,6 @@ class _HomePageState extends State<HomePage> {
         children: [
           const DashText(dashText: "Available Spools:", sortText: "Sort"),
           const SpoolListView(),
-
           Row(
             children: [
               Container(
@@ -92,14 +90,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-
-          // floatingActionButton: FloatingActionButton(
-          //   onPressed: () {},
-          //   child: IconButton(
-          //     onPressed: createNewSpool,
-          //     icon: const Icon(Icons.add),
-          //   ),
-          // ),
         ],
       ),
     );
