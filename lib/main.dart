@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => Customer()),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'ezRoll',
         theme: ThemeData(
             primarySwatch: Colors.blueGrey,
             textTheme: const TextTheme(
