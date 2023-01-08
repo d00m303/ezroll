@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.prov">
    <application
-        android:label="prov"
+        android:label="EzRoll"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
