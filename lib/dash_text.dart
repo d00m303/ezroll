@@ -13,7 +13,7 @@ class DashText extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: const [
               Text(
-                "Avaible Spools:",
+                "Available Spools:",
                 style: TextStyle(
                   fontSize: 24,
                   color: Colors.blueGrey,

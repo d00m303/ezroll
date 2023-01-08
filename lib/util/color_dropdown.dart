@@ -41,11 +41,10 @@ class _ColorDropdownState extends State<ColorDropdown> {
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
-                              // print(index);
-                              // customer.listaRolek[currindex][3] =
-                              //     index.toString();
-                              print(customer.listaRolek[customer.currentIndex]);
+                              customer.listaRolek[customer.currentIndex][3] =
+                                  index.toString();
                             });
+                            customer.updateDataBase();
                             Navigator.of(context).pop();
                           },
                           child: Container(
