@@ -18,7 +18,6 @@ class SpoolListView extends StatefulWidget {
 class _SpoolListViewState extends State<SpoolListView> {
   @override
   Widget build(BuildContext context) {
-    Color _color = Colors.blue;
     final customer = Provider.of<Customer>(context, listen: true);
     String text = "";
     int x = 0;
@@ -86,6 +85,7 @@ class _SpoolListViewState extends State<SpoolListView> {
                         ),
                         GestureDetector(
                           onTap: () {
+                            customer.currentIndex = index;
                             showDialog(
                                 context: context,
                                 builder: (context) =>

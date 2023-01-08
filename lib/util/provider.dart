@@ -20,6 +20,7 @@ class Customer extends ChangeNotifier {
   TextEditingController colorcontroller = TextEditingController();
 
   int currentIndex = 0;
+  int colorIndex = 0;
 
   void addRoll() {
     listaRolek.add([

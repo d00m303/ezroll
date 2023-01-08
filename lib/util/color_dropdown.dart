@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prov/spool_list_view.dart';
 import 'package:prov/util/provider.dart';
 import 'package:provider/provider.dart';
 
@@ -10,22 +11,11 @@ class ColorDropdown extends StatefulWidget {
 }
 
 class _ColorDropdownState extends State<ColorDropdown> {
-  List<DropdownMenuItem<String>> get dropDownItems {
-    List<DropdownMenuItem<String>> menuItems = [
-      const DropdownMenuItem(value: "0", child: Text("Red")),
-      const DropdownMenuItem(value: "1", child: Text("Blue")),
-      const DropdownMenuItem(value: "2", child: Text("Cyan")),
-      const DropdownMenuItem(value: "3", child: Text("Green")),
-      const DropdownMenuItem(value: "4", child: Text("Yellow")),
-    ];
-    return menuItems;
-  }
-
-  String selectedValue = "0";
-
   @override
   Widget build(BuildContext context) {
+    SpoolListView sl = SpoolListView();
     final customer = Provider.of<Customer>(context, listen: true);
+    int currindex = 0;
     return Container(
       color: Colors.blueGrey,
       width: MediaQuery.of(context).size.width / 2,
@@ -41,18 +31,34 @@ class _ColorDropdownState extends State<ColorDropdown> {
                     mainAxisSpacing: 5),
                 itemCount: customer.kolorrolki.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                      child: Row(
+                  customer.colorIndex = index;
+                  currindex = customer.currentIndex;
+
+                  return Row(
                     children: [
-                      Container(
-                        color: customer.kolorrolki[index],
-                        width: 20,
-                        height: 30,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              // print(index);
+                              // customer.listaRolek[currindex][3] =
+                              //     index.toString();
+                              print(customer.listaRolek[customer.currentIndex]);
+                            });
+                            Navigator.of(context).pop();
+                          },
+                          child: Container(
+                            color: customer.kolorrolki[index],
+                            width: 30,
+                            height: 40,
+                          ),
+                        ),
                       ),
 
                       // Text("Color$index"),
                     ],
-                  ));
+                  );
                 }),
           ),
         ],
