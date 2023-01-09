@@ -57,65 +57,90 @@ class _SpoolListViewState extends State<SpoolListView> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         const SizedBox(
-                          width: 20,
+                          width: 10,
                         ),
                         Expanded(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              AutoSizeText(
-                                maxLines: 1,
-                                "${customer.listaRolek[index][0]}",
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.blueGrey),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 0),
+                                child: Container(
+                                  child: AutoSizeText(
+                                    maxLines: 1,
+                                    "${customer.listaRolek[index][0]}"
+                                        .toUpperCase(),
+                                    style: const TextStyle(
+                                        fontSize: 20, color: Colors.blueGrey),
+                                  ),
+                                ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(top: 8.0),
-                                child: Text(
-                                  "${customer.listaRolek[index][1]}",
-                                  style: const TextStyle(
-                                      fontSize: 12, color: Colors.indigo),
+                                padding: const EdgeInsets.only(
+                                  top: 8.0,
+                                ),
+                                child: Container(
+                                  width: 60,
+                                  height: 25,
+                                  decoration: BoxDecoration(
+                                    color: Color.fromRGBO(255, 211, 4, 1),
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(
+                                        color: Color.fromRGBO(118, 66, 200, 1),
+                                        width: 3.0),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "${customer.listaRolek[index][1]}"
+                                          .toUpperCase(),
+                                      style: const TextStyle(
+                                          fontSize: 12, color: Colors.indigo),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
                           ),
                         ),
                         const SizedBox(
-                          width: 20,
+                          width: 30,
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            customer.currentIndex = index;
-                            showDialog(
-                                context: context,
-                                builder: (context) =>
-                                    Center(child: const ColorDropdown()));
-                          },
-                          child: Container(
-                              width: 20,
-                              height: 50,
-                              color: (customer.listaRolek[index][3] == "0")
-                                  ? Colors.red
-                                  : (customer.listaRolek[index][3] == "1")
-                                      ? Colors.blue
-                                      : (customer.listaRolek[index][3] == "2")
-                                          ? Colors.cyan
-                                          : (customer.listaRolek[index][3] ==
-                                                  "3")
-                                              ? Colors.green
-                                              : (customer.listaRolek[index]
-                                                          [3] ==
-                                                      "4")
-                                                  ? Colors.yellow
-                                                  : (customer.listaRolek[index]
-                                                              [3] ==
-                                                          "5")
-                                                      ? Colors.black
-                                                      : (customer.listaRolek[
-                                                                  index][3] ==
-                                                              "6")
-                                                          ? Colors.white
-                                                          : Colors.white),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              customer.currentIndex = index;
+                              showDialog(
+                                  context: context,
+                                  builder: (context) =>
+                                      Center(child: const ColorDropdown()));
+                            },
+                            child: Container(
+                                width: 20,
+                                height: 50,
+                                color: (customer.listaRolek[index][3] == "0")
+                                    ? Colors.red
+                                    : (customer.listaRolek[index][3] == "1")
+                                        ? Colors.blue
+                                        : (customer.listaRolek[index][3] == "2")
+                                            ? Colors.cyan
+                                            : (customer.listaRolek[index][3] ==
+                                                    "3")
+                                                ? Colors.green
+                                                : (customer.listaRolek[index]
+                                                            [3] ==
+                                                        "4")
+                                                    ? Colors.yellow
+                                                    : (customer.listaRolek[
+                                                                index][3] ==
+                                                            "5")
+                                                        ? Colors.black
+                                                        : (customer.listaRolek[
+                                                                    index][3] ==
+                                                                "6")
+                                                            ? Colors.white
+                                                            : Colors.white),
+                          ),
                         ),
                         Expanded(
                           child: Column(
@@ -183,10 +208,17 @@ class _SpoolListViewState extends State<SpoolListView> {
                                     () {},
                                   );
                                 },
-                                child: Image.asset(
-                                    scale: 18,
-                                    fit: BoxFit.scaleDown,
-                                    "images/printer.png"),
+                                child: Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                      color: Colors.amber[900],
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Image.asset(
+                                      scale: 18,
+                                      fit: BoxFit.scaleDown,
+                                      "images/printer.png"),
+                                ),
                               ),
                             ],
                           ),

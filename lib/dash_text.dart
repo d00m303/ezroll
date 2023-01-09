@@ -23,23 +23,38 @@ class _DashTextState extends State<DashText> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                widget.dashText,
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.blueGrey,
-                  shadows: <Shadow>[
-                    Shadow(
-                      offset: Offset(1.0, 1.0),
-                      blurRadius: 3.0,
-                      color: Color.fromARGB(255, 17, 71, 133),
+              Container(
+                width: 250,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(118, 66, 200, 1),
+                  borderRadius: BorderRadius.circular(12),
+                  // border: Border.all(
+                  //     color: Color.fromRGBO(255, 211, 4, 1), width: 3.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 30),
+                  child: Center(
+                    child: Text(
+                      widget.dashText,
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.white,
+                        shadows: <Shadow>[
+                          Shadow(
+                            offset: Offset(1.0, 1.0),
+                            blurRadius: 3.0,
+                            color: Color.fromARGB(255, 17, 71, 133),
+                          ),
+                          Shadow(
+                            offset: Offset(1.0, 1.0),
+                            blurRadius: 3.0,
+                            color: Color.fromARGB(124, 209, 209, 218),
+                          ),
+                        ],
+                      ),
                     ),
-                    Shadow(
-                      offset: Offset(1.0, 1.0),
-                      blurRadius: 3.0,
-                      color: Color.fromARGB(124, 209, 209, 218),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ],

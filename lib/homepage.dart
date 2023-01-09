@@ -9,9 +9,8 @@ import 'util/provider.dart';
 // TODO:
 
 // dodac kolory
-// dodac current color index bo przy edicie nie lapie, i daje default na czarny na razie
-// sortowanie
 // waga nowej rolki brutto
+// to upper dodac do rodzajow fil
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -82,9 +81,9 @@ class _HomePageState extends State<HomePage> {
                 height: 50,
                 color: Colors.blueGrey,
                 child: IconButton(
-                  icon: const Icon(Icons.add_circle),
+                  icon: const Icon(Icons.add_circle,
+                      color: Color.fromRGBO(255, 111, 0, 1)),
                   onPressed: createNewSpool,
-                  color: const Color.fromARGB(255, 255, 255, 255),
                   iconSize: 30,
                 ),
               ),
