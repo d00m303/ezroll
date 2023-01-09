@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:prov/dash_text.dart';
+import 'package:prov/infopage.dart';
 import 'package:prov/spool_list_view.dart';
 import 'package:prov/util/dialog.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +11,6 @@ import 'util/provider.dart';
 
 // dodac kolory
 // waga nowej rolki brutto
-// to upper dodac do rodzajow fil
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -75,16 +75,32 @@ class _HomePageState extends State<HomePage> {
           const DashText(dashText: "Available Spools:", sortText: "Sort"),
           const SpoolListView(),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: 50,
                 color: Colors.blueGrey,
-                child: IconButton(
-                  icon: const Icon(Icons.add_circle,
-                      color: Color.fromRGBO(255, 111, 0, 1)),
-                  onPressed: createNewSpool,
-                  iconSize: 30,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.add_circle,
+                          color: Color.fromRGBO(255, 111, 0, 1)),
+                      onPressed: createNewSpool,
+                      iconSize: 30,
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.info,
+                          color: Color.fromRGBO(255, 111, 0, 1)),
+                      iconSize: 30,
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const InfoPage()),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
