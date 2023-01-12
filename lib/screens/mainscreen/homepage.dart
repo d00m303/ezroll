@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:prov/dash_text.dart';
-import 'package:prov/infopage.dart';
-import 'package:prov/spool_list_view.dart';
-import 'package:prov/util/dialog.dart';
+import 'package:prov/util/dash_text.dart';
+import 'package:prov/screens/dbscreen/infopage.dart';
+import 'package:prov/screens/mainscreen/spool_list_view.dart';
+import 'package:prov/screens/mainscreen/dialog.dart';
 import 'package:provider/provider.dart';
-import 'util/provider.dart';
+import '../../util/provider.dart';
 
 // TODO:
 
 // dodac kolory
 // waga nowej rolki brutto
-// image picker z galerii
-// - on tap duze zdjecie, on long zmiana fotki
+// image picker z galerii -- zrobione
+// - on tap duze zdjecie, on long zmiana fotki -- zrobione
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

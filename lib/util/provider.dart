@@ -85,7 +85,8 @@ class Customer extends ChangeNotifier {
   /// EMPTY SPOOLS FUNCTIONS
   ///
   ///
-
+  ///
+  int currentEmptyIndex = 0;
   TextEditingController enamecontroller = TextEditingController();
   TextEditingController eweightcontroller = TextEditingController();
 
@@ -116,6 +117,28 @@ class Customer extends ChangeNotifier {
   void loadEmptyData() {
     listaPustychRolek = _myBox.get("EMPTYSPOOLS");
 
+    notifyListeners();
+  }
+
+  void updateEmptyRoll(int index) {
+    var x = listaPustychRolek[index][0];
+    listaPustychRolek.removeAt(currentEmptyIndex);
+    listaPustychRolek.add([
+      x.toString(),
+      enamecontroller.text,
+
+      eweightcontroller.text,
+      // x.toString(),
+    ]);
+    enamecontroller.clear();
+    eweightcontroller.clear();
+    updateeDataBase();
+    notifyListeners();
+  }
+
+  void sortEmptyByName() {
+    listaPustychRolek.sort((a, b) => a[1].compareTo(b[1]));
+    print(listaRolek);
     notifyListeners();
   }
 }

@@ -1,31 +1,39 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:prov/infopage.dart';
-import 'package:prov/util/provider.dart';
+import 'package:prov/screens/mainscreen/spool_list_view.dart';
 import 'package:provider/provider.dart';
 
-class EmptySpool extends StatefulWidget {
+import '../../util/provider.dart';
+
+class EditBox extends StatefulWidget {
   final namecontroller;
+  final typecontroller;
   final weightcontroller;
 
+  VoidCallback onSave;
   VoidCallback onCancel;
 
-  EmptySpool(
+  EditBox(
       {super.key,
-      required this.namecontroller,
+      this.namecontroller,
+      this.typecontroller,
       required this.weightcontroller,
+      required this.onSave,
       required this.onCancel});
 
   @override
-  State<EmptySpool> createState() => _EmptySpoolState();
+  State<EditBox> createState() => _EditBoxState();
 }
 
-class _EmptySpoolState extends State<EmptySpool> {
+class _EditBoxState extends State<EditBox> {
+  Customer db = Customer();
+  SpoolListView sp = SpoolListView();
+  late int index;
+
   @override
   Widget build(BuildContext context) {
     final customer = Provider.of<Customer>(context, listen: true);
-
     return SingleChildScrollView(
       child: AlertDialog(
         backgroundColor: Colors.white,
@@ -34,30 +42,32 @@ class _EmptySpoolState extends State<EmptySpool> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Spool brand:'),
+              const Text('Brand:'),
               TextField(
-                maxLength: 16,
-                controller: customer.enamecontroller,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const Text('Net. weight:'),
+                  maxLength: 16,
+                  controller: customer.namecontroller,
+                  decoration:
+                      const InputDecoration(border: OutlineInputBorder())),
+              const Text('Type:'),
               TextField(
-                controller: customer.eweightcontroller,
-                decoration: const InputDecoration(border: OutlineInputBorder()),
-              ),
-              Text("Clear Picture"),
+                  controller: customer.typecontroller,
+                  decoration:
+                      const InputDecoration(border: OutlineInputBorder())),
+              const Text('Weight:'),
+              TextField(
+                  keyboardType: TextInputType.number,
+                  controller: customer.weightcontroller,
+                  decoration:
+                      const InputDecoration(border: OutlineInputBorder())),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   MyButton(
                       text: 'ADD',
                       onPressed: () {
-                        customer.addEmptyRoll();
+                        customer.updateRoll(customer.currentIndex);
+
                         Navigator.of(context).pop();
-                        print("dodaj pusta");
-                        print(customer.listaPustychRolek);
                       }),
                   const SizedBox(
                     width: 20,

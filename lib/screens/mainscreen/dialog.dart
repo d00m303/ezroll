@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'provider.dart';
+import '../../util/provider.dart';
 
 class DialogBox extends StatefulWidget {
   final namecontroller;

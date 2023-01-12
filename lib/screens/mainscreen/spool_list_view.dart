@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prov/util/color_dropdown.dart';
+import 'package:prov/screens/mainscreen/color_dropdown.dart';
 
-import 'package:prov/util/editdialog.dart';
+import 'package:prov/screens/mainscreen/editdialog.dart';
 import 'package:prov/util/provider.dart';
 import 'package:provider/provider.dart';
 import 'package:auto_size_text/auto_size_text.dart';

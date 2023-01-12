@@ -2,12 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:prov/dash_text.dart';
+import 'package:prov/util/dash_text.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:prov/homepage.dart';
-import 'package:prov/spoolsdialog.dart';
+import 'package:prov/screens/mainscreen/homepage.dart';
+import 'package:prov/screens/dbscreen/spoolsdialog.dart';
 import 'package:prov/util/provider.dart';
 import 'package:provider/provider.dart';
+
+import '../mainscreen/editdialog.dart';
+import 'editspoolsdialog.dart';
 
 class InfoPage extends StatefulWidget {
   const InfoPage({super.key});
@@ -108,6 +111,44 @@ class _InfoPageState extends State<InfoPage> {
                                   child: Center(
                                     child: GestureDetector(
                                       onTap: () {
+                                        showDialog(
+                                          context: context,
+                                          builder: (context) => Container(
+                                            color: Colors.white,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width /
+                                                2,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                2,
+                                            child: Column(
+                                              children: [
+                                                (customer.listaPustychRolek[
+                                                            index][0] !=
+                                                        "empty")
+                                                    ? Image.file(
+                                                        File(customer
+                                                                .listaPustychRolek[
+                                                            index][0]),
+                                                      )
+                                                    : Text("Add Image"),
+                                                SizedBox(
+                                                  height: 40,
+                                                ),
+                                                ElevatedButton(
+                                                  child: Text("Close"),
+                                                  onPressed: () =>
+                                                      Navigator.of(context)
+                                                          .pop(),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      onLongPress: () {
                                         pickImage();
                                         currentIndex = index;
                                         print(currentIndex);
@@ -116,10 +157,10 @@ class _InfoPageState extends State<InfoPage> {
                                         height: 70,
                                         width: 53,
                                         decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            border: Border.all(
-                                                color: Colors.orange,
-                                                width: 2)),
+                                          color: Colors.white,
+                                          border: Border.all(
+                                              color: Colors.orange, width: 2),
+                                        ),
                                         child: Center(
                                           child:
                                               (customer.listaPustychRolek[index]
@@ -158,20 +199,55 @@ class _InfoPageState extends State<InfoPage> {
                                     ],
                                   ),
                                 ),
-                                Expanded(
-                                    flex: 1,
-                                    child: IconButton(
-                                      icon: Icon(Icons.more_vert),
-                                      onPressed: () {
-                                        setState(
-                                          () {
-                                            customer.listaPustychRolek
-                                                .removeAt(index);
-                                            customer.updateeDataBase();
-                                          },
-                                        );
-                                      },
-                                    ))
+                                PopupMenuButton<String>(
+                                  itemBuilder: (context) {
+                                    return const [
+                                      PopupMenuItem<String>(
+                                          value: "1", child: Text("Edit")),
+                                      PopupMenuItem<String>(
+                                          value: "2", child: Text("Delete")),
+                                    ];
+                                  },
+                                  icon: const Icon(Icons.more_vert),
+                                  onSelected: (i) {
+                                    if (i == "1") {
+                                      customer.enamecontroller.text =
+                                          customer.listaPustychRolek[index][1];
+
+                                      customer.eweightcontroller.text =
+                                          customer.listaPustychRolek[index][2];
+                                      showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            customer.currentEmptyIndex = index;
+                                            return EditEmptySpool(
+                                                namecontroller:
+                                                    customer.enamecontroller,
+                                                weightcontroller:
+                                                    customer.eweightcontroller,
+                                                onCancel: () {
+                                                  Navigator.of(context).pop();
+                                                  customer.enamecontroller
+                                                      .clear();
+
+                                                  customer.eweightcontroller
+                                                      .clear();
+                                                });
+                                          });
+                                    }
+
+                                    if (i == "2") {
+                                      setState(
+                                        () {
+                                          customer.listaPustychRolek
+                                              .removeAt(index);
+                                        },
+                                      );
+                                      customer.updateeDataBase();
+                                    }
+                                  },
+                                  onCanceled: () {},
+                                ),
                               ],
                             ),
                           ),
