@@ -61,6 +61,7 @@ class _InfoPageState extends State<InfoPage> {
         print(imageFile!.path);
         path = imageFile.path;
         customer.listaPustychRolek[currentIndex][0] = path;
+        customer.updateeDataBase();
       });
     }
 

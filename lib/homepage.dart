@@ -12,6 +12,7 @@ import 'util/provider.dart';
 // dodac kolory
 // waga nowej rolki brutto
 // image picker z galerii
+// - on tap duze zdjecie, on long zmiana fotki
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
