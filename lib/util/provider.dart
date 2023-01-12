@@ -10,6 +10,12 @@ class Customer extends ChangeNotifier {
     Colors.yellow,
     Colors.black,
     Colors.white,
+    Colors.orange,
+    Colors.grey,
+    Colors.pink,
+    Colors.purple,
+    Colors.teal,
+    Colors.brown,
   ];
 
   List listaRolek = [];

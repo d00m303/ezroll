@@ -17,7 +17,7 @@ class _ColorDropdownState extends State<ColorDropdown> {
     return Container(
       color: Colors.blueGrey,
       width: MediaQuery.of(context).size.width / 2,
-      height: MediaQuery.of(context).size.height / 2,
+      height: MediaQuery.of(context).size.height / 3,
       child: Column(
         children: [
           Expanded(

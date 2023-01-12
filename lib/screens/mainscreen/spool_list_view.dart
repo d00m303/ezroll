@@ -131,15 +131,34 @@ class _SpoolListViewState extends State<SpoolListView> {
                                                             [3] ==
                                                         "4")
                                                     ? Colors.yellow
-                                                    : (customer.listaRolek[
-                                                                index][3] ==
+                                                    : (customer.listaRolek[index]
+                                                                [3] ==
                                                             "5")
                                                         ? Colors.black
                                                         : (customer.listaRolek[
                                                                     index][3] ==
                                                                 "6")
                                                             ? Colors.white
-                                                            : Colors.white),
+                                                            : (customer.listaRolek[index]
+                                                                        [3] ==
+                                                                    "7")
+                                                                ? Colors.orange
+                                                                : (customer.listaRolek[index][3] ==
+                                                                        "8")
+                                                                    ? Colors
+                                                                        .grey
+                                                                    : (customer.listaRolek[index][3] ==
+                                                                            "9")
+                                                                        ? Colors
+                                                                            .pink
+                                                                        : (customer.listaRolek[index][3] ==
+                                                                                "10")
+                                                                            ? Colors.purple
+                                                                            : (customer.listaRolek[index][3] == "11")
+                                                                                ? Colors.teal
+                                                                                : (customer.listaRolek[index][3] == "12")
+                                                                                    ? Colors.brown
+                                                                                    : Colors.white),
                           ),
                         ),
                         Expanded(

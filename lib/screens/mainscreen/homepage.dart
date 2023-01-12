@@ -9,10 +9,10 @@ import '../../util/provider.dart';
 
 // TODO:
 
-// dodac kolory
-// waga nowej rolki brutto
-// image picker z galerii -- zrobione
-// - on tap duze zdjecie, on long zmiana fotki -- zrobione
+// poprawic row w db screen bo ucieka do gory jak klawiatura wchodzi
+// poprawic dolne menu
+// sprawdzic initstate na drugiej stronie bo niepotrzebnie odswieza
+// --pozniej - dodac info o ustawieniach najlepszych
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
