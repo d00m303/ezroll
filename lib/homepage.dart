@@ -11,6 +11,7 @@ import 'util/provider.dart';
 
 // dodac kolory
 // waga nowej rolki brutto
+// image picker z galerii
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

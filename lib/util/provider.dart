@@ -67,6 +67,7 @@ class Customer extends ChangeNotifier {
 
   void loadData() {
     listaRolek = _myBox.get("TODOLIST");
+
     notifyListeners();
   }
 
@@ -78,6 +79,43 @@ class Customer extends ChangeNotifier {
   void sortByName() {
     listaRolek.sort((a, b) => a[0].compareTo(b[0]));
     print(listaRolek);
+    notifyListeners();
+  }
+
+  /// EMPTY SPOOLS FUNCTIONS
+  ///
+  ///
+
+  TextEditingController enamecontroller = TextEditingController();
+  TextEditingController eweightcontroller = TextEditingController();
+
+  List listaPustychRolek = [
+    ["empty", "eSun TPU", "238"],
+    ["empty", "Fiber", "230"],
+    ["empty", "plast", "200"],
+  ];
+
+  void updateeDataBase() {
+    _myBox.put("EMPTYSPOOLS", listaPustychRolek);
+    notifyListeners();
+  }
+
+  void addEmptyRoll() {
+    listaPustychRolek.add([
+      "empty",
+      enamecontroller.text,
+      eweightcontroller.text,
+    ]);
+
+    updateeDataBase();
+    notifyListeners();
+    enamecontroller.clear();
+    eweightcontroller.clear();
+  }
+
+  void loadEmptyData() {
+    listaPustychRolek = _myBox.get("EMPTYSPOOLS");
+
     notifyListeners();
   }
 }
