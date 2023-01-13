@@ -13,6 +13,7 @@ class _ColorDropdownState extends State<ColorDropdown> {
   @override
   Widget build(BuildContext context) {
     final customer = Provider.of<Customer>(context, listen: true);
+    // ignore: unused_local_variable
     int currindex = 0;
     return Container(
       color: Colors.blueGrey,

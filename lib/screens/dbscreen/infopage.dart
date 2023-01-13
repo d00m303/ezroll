@@ -1,15 +1,11 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:prov/util/dash_text.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:prov/screens/mainscreen/homepage.dart';
 import 'package:prov/screens/dbscreen/spoolsdialog.dart';
 import 'package:prov/util/provider.dart';
 import 'package:provider/provider.dart';
-
-import '../mainscreen/editdialog.dart';
 import 'editspoolsdialog.dart';
 
 class InfoPage extends StatefulWidget {
@@ -270,17 +266,6 @@ class _InfoPageState extends State<InfoPage> {
                     children: [
                       IconButton(
                         icon: const Icon(Icons.add_circle,
-                            color: Color.fromRGBO(255, 111, 0, 1)),
-                        onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const HomePage(),
-                          ),
-                        ),
-                        iconSize: 30,
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.info,
                             color: Color.fromRGBO(255, 111, 0, 1)),
                         iconSize: 30,
                         onPressed: () {
