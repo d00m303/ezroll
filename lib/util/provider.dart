@@ -10,6 +10,12 @@ class Customer extends ChangeNotifier {
     Colors.yellow,
     Colors.black,
     Colors.white,
+    Colors.orange,
+    Colors.grey,
+    Colors.pink,
+    Colors.purple,
+    Colors.teal,
+    Colors.brown,
   ];
 
   List listaRolek = [];
@@ -67,6 +73,7 @@ class Customer extends ChangeNotifier {
 
   void loadData() {
     listaRolek = _myBox.get("TODOLIST");
+
     notifyListeners();
   }
 
@@ -77,6 +84,66 @@ class Customer extends ChangeNotifier {
 
   void sortByName() {
     listaRolek.sort((a, b) => a[0].compareTo(b[0]));
+    print(listaRolek);
+    notifyListeners();
+  }
+
+  /// EMPTY SPOOLS FUNCTIONS
+  ///
+  ///
+  ///
+  int currentEmptyIndex = 0;
+  TextEditingController enamecontroller = TextEditingController();
+  TextEditingController eweightcontroller = TextEditingController();
+
+  List listaPustychRolek = [
+    ["empty", "eSun TPU", "238"],
+    ["empty", "Fiber", "230"],
+    ["empty", "plast", "200"],
+  ];
+
+  void updateeDataBase() {
+    _myBox.put("EMPTYSPOOLS", listaPustychRolek);
+    notifyListeners();
+  }
+
+  void addEmptyRoll() {
+    listaPustychRolek.add([
+      "empty",
+      enamecontroller.text,
+      eweightcontroller.text,
+    ]);
+
+    updateeDataBase();
+    notifyListeners();
+    enamecontroller.clear();
+    eweightcontroller.clear();
+  }
+
+  void loadEmptyData() {
+    listaPustychRolek = _myBox.get("EMPTYSPOOLS");
+
+    notifyListeners();
+  }
+
+  void updateEmptyRoll(int index) {
+    var x = listaPustychRolek[index][0];
+    listaPustychRolek.removeAt(currentEmptyIndex);
+    listaPustychRolek.add([
+      x.toString(),
+      enamecontroller.text,
+
+      eweightcontroller.text,
+      // x.toString(),
+    ]);
+    enamecontroller.clear();
+    eweightcontroller.clear();
+    updateeDataBase();
+    notifyListeners();
+  }
+
+  void sortEmptyByName() {
+    listaPustychRolek.sort((a, b) => a[1].compareTo(b[1]));
     print(listaRolek);
     notifyListeners();
   }

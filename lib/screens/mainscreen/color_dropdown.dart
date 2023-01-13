@@ -13,11 +13,12 @@ class _ColorDropdownState extends State<ColorDropdown> {
   @override
   Widget build(BuildContext context) {
     final customer = Provider.of<Customer>(context, listen: true);
+    // ignore: unused_local_variable
     int currindex = 0;
     return Container(
       color: Colors.blueGrey,
       width: MediaQuery.of(context).size.width / 2,
-      height: MediaQuery.of(context).size.height / 2,
+      height: MediaQuery.of(context).size.height / 3,
       child: Column(
         children: [
           Expanded(

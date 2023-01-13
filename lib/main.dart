@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:prov/screens/page_view.dart';
 import 'package:provider/provider.dart';
-import 'homepage.dart';
+
 import 'util/provider.dart';
 
 void main() async {
   await Hive.initFlutter();
+  // ignore: unused_local_variable
   var box = await Hive.openBox('mybox');
   runApp(const MyApp());
 }
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
               bodyMedium: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
               bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
             )),
-        home: const HomePage(),
+        home: const MyPageView(),
       ),
     );
   }

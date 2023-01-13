@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:prov/dash_text.dart';
-import 'package:prov/spool_list_view.dart';
-import 'package:prov/util/dialog.dart';
+import 'package:prov/util/dash_text.dart';
+import 'package:prov/screens/mainscreen/spool_list_view.dart';
+import 'package:prov/screens/mainscreen/dialog.dart';
 import 'package:provider/provider.dart';
-import 'util/provider.dart';
+import '../../util/provider.dart';
 
 // TODO:
 
-// dodac kolory
-// waga nowej rolki brutto
-// to upper dodac do rodzajow fil
+// poprawic row w db screen bo ucieka do gory jak klawiatura wchodzi
+// poprawic dolne menu
+// sprawdzic initstate na drugiej stronie bo niepotrzebnie odswieza
+// --pozniej - dodac info o ustawieniach najlepszych
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -75,16 +76,22 @@ class _HomePageState extends State<HomePage> {
           const DashText(dashText: "Available Spools:", sortText: "Sort"),
           const SpoolListView(),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: 50,
                 color: Colors.blueGrey,
-                child: IconButton(
-                  icon: const Icon(Icons.add_circle,
-                      color: Color.fromRGBO(255, 111, 0, 1)),
-                  onPressed: createNewSpool,
-                  iconSize: 30,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.add_circle,
+                          color: Color.fromRGBO(255, 111, 0, 1)),
+                      onPressed: createNewSpool,
+                      iconSize: 30,
+                    ),
+                  ],
                 ),
               ),
             ],
